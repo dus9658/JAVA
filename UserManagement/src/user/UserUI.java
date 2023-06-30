@@ -14,8 +14,9 @@ public class UserUI {
     public int menu(){
         System.out.println("1. 회원등록");
         System.out.println("2. 회원 목록 보기");
-        System.out.println("3. 종료");
-
+        System.out.println("3. 회원 정보 수정");
+        System.out.println("4. 회원 정보 삭제");
+        System.out.println("5. 종료");
         int menuId = -1;
         try {
             String line = br.readLine();
@@ -24,6 +25,33 @@ public class UserUI {
             ex.printStackTrace();
         }
         return menuId;
+    }
+
+    public String inputEmail(){
+        System.out.println("수정할 회원의 email을 입력하세요.");
+        String email = "";
+        try {
+            email = br.readLine();
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return email;
+    }
+
+    public User inputUser(String email){
+        try {
+            System.out.println(email+" 회원의 정보를 수정합니다.");
+            System.out.println("이름을 입력하세요");
+            String name = br.readLine();
+            System.out.println("생년을 입력하세요");
+            int birthYear= Integer.parseInt(br.readLine());
+
+            User user = new User(email, name, birthYear);
+            return user;
+        }catch (Exception ex){
+            ex.printStackTrace();
+            return null;
+        }
     }
 
     public User regUser() {
