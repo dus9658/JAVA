@@ -19,7 +19,7 @@ public class UserDao {
         }
     }
 
-    public List<User> getUser(){
+    public List<User> getUsers(){
         File file = new File((filename));
         if(!file.exists()){
             return new ArrayList<>();
